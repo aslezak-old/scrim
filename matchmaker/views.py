@@ -7,3 +7,7 @@ from django.http import HttpResponse
 def index(request):
     teams = Team.objects.all()
     return render(request, 'index.html', {'teams': teams})
+
+
+def detail(request):
+    return HttpResponse("WORKED")

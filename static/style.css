@@ -1,0 +1,13 @@
+.news {
+    min-height: 500px;
+}
+
+.login {
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.logo {
+    float:left;
+}
