@@ -9,5 +9,5 @@ def index(request):
     return render(request, 'index.html', {'teams': teams})
 
 
-def detail(request):
+def teams(request):
     return HttpResponse("WORKED")
