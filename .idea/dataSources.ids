@@ -89,15 +89,11 @@
       <index name="django_session_b7b81f0c" unique="true" columns="expire_date"/>
     </table>
     <table name="matchmaker_team" schema="" catalog="" type="TABLE">
-      <column name="league" sqlType="VARCHAR(1)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
-      <column name="description" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
       <column name="name" sqlType="VARCHAR(200)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
-      <column name="wins" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
-      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="true" jdbcType="4"/>
-      <column name="prefix" sqlType="VARCHAR(4)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
-      <column name="loses" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
       <column name="slug" sqlType="VARCHAR(50)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
-      <column name="icon" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="prefix" sqlType="VARCHAR(4)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
     </table>
     <table name="south_migrationhistory" schema="" catalog="" type="TABLE">

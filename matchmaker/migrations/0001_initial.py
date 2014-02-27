@@ -12,9 +12,13 @@ class Migration(SchemaMigration):
         db.create_table(u'matchmaker_team', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=200)),
+            ('prefix', self.gf('django.db.models.fields.CharField')(max_length=4)),
             ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50)),
             ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('prefix', self.gf('django.db.models.fields.CharField')(max_length=4)),
+            ('icon', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
+            ('wins', self.gf('django.db.models.fields.IntegerField')(default=0, null=True)),
+            ('loses', self.gf('django.db.models.fields.IntegerField')(default=0, null=True)),
+            ('league', self.gf('django.db.models.fields.CharField')(max_length=1, null=True, blank=True)),
         ))
         db.send_create_signal(u'matchmaker', ['Team'])
 
@@ -28,10 +32,14 @@ class Migration(SchemaMigration):
         u'matchmaker.team': {
             'Meta': {'object_name': 'Team'},
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'icon': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'league': ('django.db.models.fields.CharField', [], {'max_length': '1', 'null': 'True', 'blank': 'True'}),
+            'loses': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'prefix': ('django.db.models.fields.CharField', [], {'max_length': '4'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50'})
+            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50'}),
+            'wins': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'})
         }
     }
 
