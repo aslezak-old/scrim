@@ -1,6 +1,4 @@
-.news {
-    min-height: 500px;
-}
+/* BASE */
 
 .login {
     float: right;
@@ -10,4 +8,57 @@
 
 .logo {
     float:left;
+}
+
+/* INDEX */
+
+.news {
+    min-height: 500px;
+}
+
+/* TEAMS PAGE */
+
+.leagues {
+    float:left;
+}
+
+.teamicon {
+    width:160px;
+    float: left;
+    margin-right: 3%;
+}
+
+.teamicon a{
+    margin-bottom: 0;
+}
+.teamContent {
+    float: left;
+    width: 80%;
+}
+
+.teamContentHeader {
+    overflow: hidden;
+}
+
+.teamContentHeader h3 {
+    float:left;
+    margin-bottom: 0;
+    font-weight: bold;
+
+}
+
+.teamContentHeader .league {
+    margin-top:10px;
+    float:right;
+    background-color:#e7e7e7;
+    padding: 5px;
+    color:#777;
+    border-radius:5px;
+}
+
+.teamContentHeader .wins {
+    float:right;
+    margin-top:10px;
+    padding: 5px;
+    margin-right: 10%;
 }

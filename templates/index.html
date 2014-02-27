@@ -1,32 +1,44 @@
-{% extends "base.html" %}
+{% extends "layouts/2column.html" %}
 
 {% load webdesign %}
 
 {% block content %}
     <h2>News Title</h2>
-    <hr />
+    <hr/>
     {% lorem 3 p %}
     <h2>News Title</h2>
-    <hr />
+    <hr/>
     {% lorem 1 p %}
     <h2>News Title</h2>
-    <hr />
+    <hr/>
     {% lorem 2 p %}
-    {% endblock %}
+
+    <div class="nav-page text-center">
+        <ul class="pagination ">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </div>
+{% endblock %}
 {% block sidebar %}
 
-<div class="list-group">
-  <a href="#" class="list-group-item">Cras justo odio</a>
-  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item">Morbi leo risus</a>
-  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item">Vestibulum at eros</a>
-</div>
+    <div class="list-group">
+        <a href="#" class="list-group-item">Cras justo odio</a>
+        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+        <a href="#" class="list-group-item">Morbi leo risus</a>
+        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+        <a href="#" class="list-group-item">Vestibulum at eros</a>
+    </div>
 
-<a href="#" class="thumbnail">
-      <img src="http://placehold.it/300x350" alt="...">
-</a>
-<a href="#" class="thumbnail">
-      <img src="http://placehold.it/300x350" alt="...">
-</a>
+    <a href="#" class="thumbnail">
+        <img src="http://placehold.it/300x350" alt="...">
+    </a>
+    <a href="#" class="thumbnail">
+        <img src="http://placehold.it/300x350" alt="...">
+    </a>
 {% endblock %}

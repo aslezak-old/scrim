@@ -9,6 +9,19 @@ class Team(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
     icon = models.ImageField(upload_to='/media', blank=True, null=True)
+    wins = models.IntegerField(default=0, null=True)
+    loses = models.IntegerField(default=0, null=True)
+
+    LEAGUE_CHOICES = (
+        ('B', 'Bronze'),
+        ('S', 'Silver'),
+        ('G', 'Gold'),
+        ('P', 'Platinum'),
+        ('D', 'Diamond'),
+        ('C', 'Challenger'),
+    )
+
+    league = models.CharField(max_length=1, choices=LEAGUE_CHOICES, null=True, blank=True)
 
     def __unicode__(self):
         return self.name

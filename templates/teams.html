@@ -1,0 +1,56 @@
+{% extends "layouts/1column.html" %}
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ul class="nav nav-pills leagues">
+                <li><a href="/teams/A/">All</a></li>
+                <li><a href="/teams/B/">Bronze</a></li>
+                <li><a href="/teams/S/">Silver</a></li>
+                <li><a href="/teams/G/">Gold</a></li>
+                <li><a href="/teams/P/">Platinum</a></li>
+                <li><a href="/teams/D/">Diamond</a></li>
+                <li><a href="/teams/C/">Challenger</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    {% if not teams %}
+
+        <p>No info!</p>
+
+    {% endif %}
+
+    {% for t in teams %}
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="teamicon">
+                    <a href="" class="thumbnail">
+                        <img src="{{ t.icon }}" alt="...">
+                    </a>
+                </div>
+
+                <div class="teamContent">
+                    <div class="teamContentHeader">
+                        <h3><a href="">{{ t.name }}</a></h3>
+                        <span class="league">{{ t.get_league_display }}</span>
+                        <span class="wins">Wins: {{ t.wins }}</span>
+
+                    </div>
+                    <hr/>
+                    <p>{{ t.description }}</p>
+
+                </div>
+
+
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

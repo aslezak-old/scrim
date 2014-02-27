@@ -8,6 +8,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'scrim.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'matchmaker.views.index', name='index'),
-    url(r'^teams/', 'matchmaker.views.teams', name='teams'),
+    url(r'^teams/', include('matchmaker.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

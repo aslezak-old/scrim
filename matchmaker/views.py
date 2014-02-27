@@ -5,9 +5,18 @@ from django.http import HttpResponse
 
 
 def index(request):
+    return render(request, 'index.html')
+
+
+def team_index(request):
     teams = Team.objects.all()
-    return render(request, 'index.html', {'teams': teams})
+    return render(request, 'teams.html', {"all_teams": teams})
 
 
-def teams(request):
-    return HttpResponse("WORKED")
+def detail(request, league):
+    #Check if ALL, if so display all teams
+    if league == "A":
+        teams = Team.objects.all()
+    elif league:
+        teams = Team.objects.filter(league=league)
+    return render(request, 'teams.html', {"teams": teams})

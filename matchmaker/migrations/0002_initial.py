@@ -15,6 +15,7 @@ class Migration(SchemaMigration):
             ('prefix', self.gf('django.db.models.fields.CharField')(max_length=4)),
             ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50)),
             ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
+            ('icon', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
         ))
         db.send_create_signal(u'matchmaker', ['Team'])
 
@@ -28,6 +29,7 @@ class Migration(SchemaMigration):
         u'matchmaker.team': {
             'Meta': {'object_name': 'Team'},
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'icon': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'prefix': ('django.db.models.fields.CharField', [], {'max_length': '4'}),

@@ -4,65 +4,43 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
 <div class="container">
-    <div class="row"><h1 class="logo"><a href="/">LoL Scrim</a></h1>
-    <ul class="nav nav-pills login">
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="">Messages</a></li>
-    </ul>
-    </div>
-<div class="row">
-    <nav class="navbar navbar-default" role="navigation">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="{% url 'matchmaker.views.teams' %}">Teams</a></li>
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Recent Games</a></li>
-      </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-
-    </div><!-- /.navbar-collapse -->
-    </nav>
-</div>
-
-    <div class="row">
-    <div class="col-xs-8 col-md-8 news">
-        {% block content %}{% endblock %}
-    <div class="nav-page text-center">
-        <ul class="pagination ">
-          <li><a href="#">&laquo;</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&raquo;</a></li>
+    <div class="row"><h1 class="logo"><a href="{% url 'matchmaker.views.index' %}">LoL Scrim</a></h1>
+        <ul class="nav nav-pills login">
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="">Messages</a></li>
         </ul>
     </div>
+    <div class="row">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'teams' %}">Teams</a></li>
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Recent Games</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
     </div>
-    <div class="col-xs-4 col-md-4">
-        {% block sidebar %}{% endblock %}
-    </div>
-</div>
+    {% block body %}{% endblock %}
 </div>
 
 
 
-
-
-
-</div>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>
