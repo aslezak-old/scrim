@@ -10,7 +10,7 @@ def index(request):
 
 def team_index(request):
     teams = Team.objects.all()
-    return render(request, 'teams.html', {"all_teams": teams})
+    return render(request, 'teams.html', {"teams": teams})
 
 
 def detail(request, league):
@@ -20,3 +20,8 @@ def detail(request, league):
     elif league:
         teams = Team.objects.filter(league=league)
     return render(request, 'teams.html', {"teams": teams})
+
+
+def team_detail(request, team_id):
+    team = Team.objects.get(pk=team_id)
+    return render(request, 'team_detail.html', {"team": team})

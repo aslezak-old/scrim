@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.webdesign',
     'matchmaker',
-    'south'
+    'south',
+    'auth'
 )
 
 MIDDLEWARE_CLASSES = (
