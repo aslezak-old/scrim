@@ -8,11 +8,56 @@
     <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
+
+<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Login Form</h4>
+            </div>
+            {% if form.errors %}
+
+                <div class="alert alert-danger">Wrong username or password!</div>
+
+            {% endif %}
+
+            <div class="modal-body">
+                <div class="loginform">
+                    <form role="form" action="/auth/" method="post">
+                        <div class="form-group">
+                        {% csrf_token %}
+                        <label for="username">Username:</label>
+                        <input class="form-control" type="text" name="username"/>
+                        <br />
+                        <label for="password">Password:</label>
+                        <input class="form-control" type="text" name="password"/>
+                        <br />
+                        <input class="form-control" class="btn btn-default" type="submit" value="Login"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row"><h1 class="logo"><a href="{% url 'matchmaker.views.index' %}">LoL Scrim</a></h1>
         <ul class="nav nav-pills login">
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Login</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="#">My Teams</a></li>
+                <li><a href="#">My Profile</a></li>
+                <li><a href="{% url 'logout_view' %}">Logout</a></li>
+            {% else %}
+                <li><a href="#">Register</a></li>
+                <li>
+                    <button class="btn btn-primary" data-toggle="modal" data-target=".login-modal">Login</button>
+                </li>
+            {% endif %}
+
         </ul>
     </div>
     <div class="row">
@@ -38,8 +83,7 @@
     {% block body %}{% endblock %}
 </div>
 
-
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

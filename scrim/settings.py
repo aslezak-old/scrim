@@ -42,7 +42,6 @@ INSTALLED_APPS = (
     'django.contrib.webdesign',
     'matchmaker',
     'south',
-    'auth'
 )
 
 MIDDLEWARE_CLASSES = (

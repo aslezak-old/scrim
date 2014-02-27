@@ -10,4 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', 'matchmaker.views.index', name='index'),
     url(r'^teams/', include('matchmaker.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^auth/$', 'matchmaker.views.auth', name='auth_view'),
+    url(r'^logout/$', 'matchmaker.views.logout_view', name='logout_view'),
+
 )
